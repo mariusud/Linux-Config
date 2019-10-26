@@ -2,6 +2,7 @@
 
 BASHRC=".bashrc";
 BASHRC_D=".bashrc.d";
+GITCONFIG="gitconfig";
 HOME_BASHRC="$HOME/$BASHRC";
 HOME_BASHRC_D="$HOME/$BASHRC_D";
 
@@ -15,6 +16,7 @@ usage () {
 copy_files () {
   echo "Copying files from $BASHRC_D into $HOME_BASHRC_D.";
   cp -rv "$BASHRC_D" "$HOME";
+  cp -rv "$GITCONFIG" "$HOME/.gitconfig";
 }
 
 delete_files (){
