@@ -1,0 +1,32 @@
+[alias]	
+gr = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %G? - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''            %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+last = log --numstat -1 
+lastdiff = diff --cached HEAD^  
+ 
+up = !"git remote update -p && git merge --ff-only @{u}"
+st = status
+co = checkout
+cob = checkout -b
+cm = !"git commit -S -m"
+pu = push -u
+br = branch -a 
+lg = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+ 
+amend = commit -a --amend
+ec = config --global -e
+aliases = config --get-regexp alias 
+
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
