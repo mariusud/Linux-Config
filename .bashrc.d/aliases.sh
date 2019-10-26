@@ -7,3 +7,7 @@ alias rm="rm -i";
 alias mv="mv -i";
 alias mkdir='mkdir -vp';
 alias chmod='chmod -v';
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'

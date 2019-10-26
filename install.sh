@@ -8,9 +8,8 @@ HOME_BASHRC_D="$HOME/$BASHRC_D";
 usage () {
   echo "Usage: $(basename "$0") [OPTIONS]";
   echo "Options:";
-  echo "  -n: New install.";
-  echo "  -c: Rollback to previous install.";
-  echo "  -u: Update files in $HOME_BASHRC_D.";
+  echo "  -n: New install";
+  echo "  -u: Undo install";
 }
 
 copy_files () {
@@ -51,7 +50,6 @@ restore_previous_bashrc () {
   fi
 }
 
-
 run () {
   case "$1" in
     -n)
@@ -59,12 +57,9 @@ run () {
       save_current_bachrc;
       update_current_bashrc;
       ;;
-    -c)
+    -u)
       delete_files;
       restore_previous_bashrc;
-      ;;
-    -u)
-      copy_files;
       ;;
     *)
       usage;
