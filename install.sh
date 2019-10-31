@@ -7,10 +7,8 @@ HOME_BASHRC="$HOME/$BASHRC";
 HOME_BASHRC_D="$HOME/$BASHRC_D";
 
 usage () {
-  echo "Usage: $(basename "$0") [OPTIONS]";
   echo "Options:";
-  echo "  -n: New install";
-  echo "  -u: Undo install";
+  echo " ./install.sh -u: Undo install";
 }
 
 copy_files () {
@@ -54,20 +52,20 @@ restore_previous_bashrc () {
 
 run () {
   case "$1" in
-    -n)
+    *)
       copy_files;
       save_current_bachrc;
       update_current_bashrc;
+      sudo apt install bacula-console-qt tldr glances;
+      usage;
       ;;
     -u)
       delete_files;
       restore_previous_bashrc;
       ;;
-    *)
-      usage;
-      ;;
   esac
 }
+
 
 run "$*";
 

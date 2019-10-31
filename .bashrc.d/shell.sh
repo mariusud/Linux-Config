@@ -8,7 +8,7 @@ shopt -s histappend;
 shopt -s histreedit;
 
 HISTSIZE=5000;
-HISTFILESIZE=10000
+HISTFILESIZE=10000;
 HISTCONTROL="ignoreboth";
 HISTTIMEFORMAT="%F %T ";
 
