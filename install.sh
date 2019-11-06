@@ -50,13 +50,20 @@ restore_previous_bashrc () {
   fi
 }
 
+install_packages() {
+  wget https://github.com/sharkdp/bat/releases/download/v0.11.0/bat_0.11.0_amd64.deb;
+    sudo apt install gdebi tldr glances;
+    sudo gdebi bat_0.11.0_amd64.deb;
+    rm bat_0.11.0_amd64.deb; 
+}
+
 run () {
   case "$1" in
     *)
+      install_packages;
       copy_files;
       save_current_bachrc;
       update_current_bashrc;
-      sudo apt install bacula-console-qt tldr glances;
       usage;
       ;;
     -u)
