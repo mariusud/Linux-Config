@@ -55,6 +55,8 @@ install_packages() {
     sudo apt install gdebi tldr glances;
     sudo gdebi bat_0.11.0_amd64.deb;
     rm bat_0.11.0_amd64.deb; 
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
 }
 
 run () {
