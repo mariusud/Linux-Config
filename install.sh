@@ -59,6 +59,29 @@ install_packages() {
     ~/.fzf/install
 }
 
+setup_git() {
+  if [[ $EUID -eq 0 ]]; then
+   echo "This script must not be run as root" 
+   exit 1
+  fi
+ 
+  echo "Enter email address: "
+  read MAIL
+  echo "Enter user name: "
+  read NAME
+
+  git config --global user.name $NAME
+  git config --global user.email $MAIL
+
+  ssh-keygen -t rsa -b 4096 -C $MAIL
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_rsa
+  echo "SSH key:"
+  echo 
+  cat ~/.ssh/id_rsa.pub
+
+}
+
 run () {
   case "$1" in
     *)
@@ -66,6 +89,7 @@ run () {
       copy_files;
       save_current_bachrc;
       update_current_bashrc;
+      setup_git;
       usage;
       ;;
     -u)
