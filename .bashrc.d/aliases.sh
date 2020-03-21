@@ -11,3 +11,4 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias nbx="jupyter nbconvert --execute --to notebook"

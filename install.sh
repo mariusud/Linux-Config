@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 BASHRC=".bashrc";
 BASHRC_D=".bashrc.d";
@@ -54,12 +54,12 @@ install_packages() {
   wget https://github.com/sharkdp/bat/releases/download/v0.11.0/bat_0.11.0_amd64.deb;
     sudo apt install gdebi tldr glances;
     sudo gdebi bat_0.11.0_amd64.deb;
-    rm bat_0.11.0_amd64.deb; 
+    rm bat_0.11.0_amd64.*; 
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 }
 
-setup_git() {
+setup_git() {
   if [[ $EUID -eq 0 ]]; then
    echo "This script must not be run as root" 
    exit 1
@@ -77,9 +77,7 @@ setup_git() {
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/id_rsa
   echo "SSH key:"
-  echo 
   cat ~/.ssh/id_rsa.pub
-
 }
 
 run () {
@@ -102,5 +100,7 @@ run () {
 
 run "$*";
 
-echo "Refreshing terminal";
+echo "Refreshing terminal..";
 exec bash;
+sleep 2
+echo "Enjoy";
