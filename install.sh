@@ -52,7 +52,8 @@ restore_previous_bashrc () {
 
 install_packages() {
   wget https://github.com/sharkdp/bat/releases/download/v0.11.0/bat_0.11.0_amd64.deb;
-    sudo apt install gdebi tldr glances;
+    sudo apt install gdebi tldr python3-pip;
+    pip3 install glances;
     sudo gdebi bat_0.11.0_amd64.deb;
     rm bat_0.11.0_amd64.*; 
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
