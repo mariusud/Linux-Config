@@ -1,7 +1,5 @@
-alias apt-up="sudo apt update && sudo apt upgrade";
+alias up="sudo apt update && sudo apt upgrade";
 alias top='glances'
-alias cat='bat';
-alias python3=python3.6;
 alias help='tldr';
 alias rm="rm -i";
 alias mv="mv -i";
